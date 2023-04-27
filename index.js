@@ -1,6 +1,6 @@
 const grid = document.getElementById("grid");
 let lockGame = false;
-// put testMode true to see the mine
+// Set test mode to true if you want see mines location
 const testMode = false;
 generateGrid();
 
@@ -12,17 +12,17 @@ function generateGrid(){
         row = grid.insertRow(i);
         for(var j = 0; j < 10; j++){
             cell = row.insertCell(j);
-            cell.onclick = function (){init(this);};
+            cell.onclick = function (){ init(this); };
             var mine = document.createAttribute("mine");
             mine.value = "false";
             cell.setAttributeNode(mine);
         }
     }
-    generateMine();
+    generateMines();
 }
 
 // generate mine randomly
-function generateMine(){
+function generateMines(){
     // create 20 mine to game
     for(var i = 0; i < 20; i++){
         var row = Math.floor(Math.random() * 10);
