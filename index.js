@@ -36,11 +36,11 @@ function generateMines(){
 }
 
 
-function revealMine(){
-    for(var i = 0; i < 10; i++){
-        for(var j = 0; j < 10; j++){
+function revealMines() {
+    for (var i = 0; i < 10; i++) {
+        for (var j = 0; j < 10; j++) {
             var cell = grid.rows[i].cells[j];
-            if(cell.getAttribute("mine") == "true"){
+            if (cell.getAttribute("mine") == "true") {
                 cell.className = "mine";
             }
         }
@@ -58,7 +58,7 @@ function checkGameComplete(){
     }
     if(gameComplete){
         alert("You Found All Mines!");
-        revealMine();
+        revealMines();
     }
 }
 
@@ -69,7 +69,7 @@ function init(cell) {
     }else{
         // check user click on mine
         if(cell.getAttribute("mine") == "true"){
-            revealMine();
+            revealMines();
             lockGame = true;
         }else{
             cell.className = "active";
