@@ -12,9 +12,9 @@ function generateGrid(){
         row = grid.insertRow(i);
         for(var j = 0; j < 10; j++){
             cell = row.insertCell(j);
-            cell.onclick = function (){Infinity(this);};
+            cell.onclick = function (){init(this);};
             var mine = document.createAttribute("mine");
-            mine.value = false;
+            mine.value = "false";
             cell.setAttributeNode(mine);
         }
     }
@@ -51,7 +51,7 @@ function checkGameComplete(){
     var gameComplete = true;
     for(var i = 0; i < 10; i++){
         for(var j = 0; j < 10; j++){
-            if((grid.rows[i].cells[j].getAttribute("mine") == "false") && (grid.rows[i].cells[j].innerHTML = "")){
+            if((grid.rows[i].cells[j].getAttribute("mine") == "false") && (grid.rows[i].cells[j].innerHTML == "")){
                 gameComplete = false;
             }
         }

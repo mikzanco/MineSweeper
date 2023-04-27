@@ -21,4 +21,21 @@ h1{
 
 #grid tr td{
     border: 1px solid white;
+    background-color: gray;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+#grid tr td.active{
+    background-color: black;
+}
+
+#grid tr td.mine{
+    background-color: red;
+}
+
+
+button{
+    margin: 10px;
 }
