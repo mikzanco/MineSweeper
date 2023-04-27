@@ -1,0 +1,15 @@
+body{
+    background-color: rgb(50, 84, 85);
+    color: #ddd;
+    font-family: 'Courier New', Courier, monospace;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1{
+    font-size: 14pt;
+    font-weight: normal;
+}
