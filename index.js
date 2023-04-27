@@ -56,5 +56,46 @@ function checkGameComplete(){
             }
         }
     }
-    if(gameComplete)
+    if(gameComplete){
+        alert("You Found All Mines!");
+        revealMine();
+    }
+}
+
+function init(cell) {
+    // check game complete or no
+    if(lockGame) {
+        return;
+    }else{
+        // check user click on mine
+        if(cell.getAttribute("mine") == "true"){
+            revealMine();
+            lockGame = true;
+        }else{
+            cell.className = "active";
+            // display number of mine around the cell
+            var mineCount = 0;
+            var cellRow = cell.parentNode.rowIndex;
+            var cellCol = cell.cellIndex;
+            for(var i = Math.max(cellRow - 1, 0); i <= Math.min(cellRow + 1, 9); i++){
+                for(var j = Math.max(cellCol - 1, 0); j <= Math.min(cellCol + 1, 9); j++){
+                    if(grid.rows[i].cells[j].getAttribute("mine") == "true"){
+                        mineCount++;
+                    }
+                }
+            }
+            cell.innerHTML = mineCount;
+            if(mineCount == 0){
+                // if cell don't have mine
+                for(var i = Math.max(cellRow - 1, 0); i <= Math.min(cellRow + 1, 9); i++){
+                    for(var j = Math.max(cellCol - 1, 0); j <= Math.min(cellCol + 1, 9); j++){
+                        if(grid.rows[i].cells[j].innerHTML = ""){
+                            init(grid.rows[i].cells[j]);
+                        }
+                    }
+                }
+            }
+            checkGameComplete();
+        }
+    }
 }
