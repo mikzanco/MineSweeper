@@ -89,7 +89,7 @@ function init(cell) {
                 // if cell don't have mine
                 for(var i = Math.max(cellRow - 1, 0); i <= Math.min(cellRow + 1, 9); i++){
                     for(var j = Math.max(cellCol - 1, 0); j <= Math.min(cellCol + 1, 9); j++){
-                        if(grid.rows[i].cells[j].innerHTML = ""){
+                        if(grid.rows[i].cells[j].innerHTML == ""){
                             init(grid.rows[i].cells[j]);
                         }
                     }
